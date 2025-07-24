@@ -4,9 +4,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = 500;
 canvas.height = 500;
 
-let positionX = 0;
-let positionY = 0;
-
 const drawImage = new Image();
 drawImage.src = "IMG/BlueFish.png"; // Replace with your image path
 
@@ -14,49 +11,66 @@ class Fish {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.Xspeed = 2; // Speed of the fish
-        this.Yspeed = 2; // Speed of the fish
+        this.Xspeed = 0.5;
+        this.Yspeed = 0.5;
     }
+
+    move() {
+        // right
+        if (this.x + 100 >= canvas.width) {
+            this.x = canvas.width - 100;
+            this.Xspeed = -Math.sign(this.Xspeed) * (1 + Math.random());
+        }
+
+        // left
+        if (this.x <= 0) {
+            this.x = 0;
+            this.Xspeed = -Math.sign(this.Xspeed) * (1 + Math.random());
+        }
+
+        // bottom
+        if (this.y + 100 >= canvas.height) {
+            this.y = canvas.height - 100;
+            this.Yspeed = -Math.sign(this.Yspeed) * (1 + Math.random());
+        }
+
+        // top
+        if (this.y <= 0) {
+            this.y = 0;
+            this.Yspeed = -Math.sign(this.Yspeed) * (1 + Math.random());
+        }
+
+        this.x += this.Xspeed;
+        this.y += this.Yspeed;
+    }
+
     draw() {
         ctx.drawImage(drawImage, this.x, this.y, 100, 100);
     }
 }
-    
-const fish = new Fish(positionX, positionY);
 
+// Create multiple fish
+const fishes = [
+    new Fish(0, 0),
+    new Fish(150, 150),
+    new Fish(200, 50),
+    new Fish(100, 300),
+    new Fish(350, 100),
+];
 
 function animate() {
-    // right 
-    if ( fish.x + 100 >= canvas.width ) {
-        fish.x = canvas.width - 100;
-        fish.Xspeed = -fish.Xspeed + Math.random(); // Increase speed when bouncing off the right wall
-    }
-    
-    // left
-    if ( fish.x <= 0 ) {
-        fish.x = 0;
-        fish.Xspeed = -fish.Xspeed + Math.random(); // Increase speed when bouncing off the left wall
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const fish of fishes) {
+        fish.move();
+        fish.draw();
     }
 
-    // down
-    if ( fish.y + 100 >= canvas.height ) {
-        fish.y = canvas.height - 100;
-        fish.Yspeed = -fish.Yspeed + Math.random(); // Increase speed when bouncing off the bottom wall
-    }
-
-    // up
-    if ( fish.y <= 0 ) {
-        fish.y = 0;
-        fish.Yspeed = -fish.Yspeed + Math.random(); // Increase speed when bouncing off the top wall
-    }
-
-    // Move the fish
-    fish.x += fish.Xspeed;
-    fish.y += fish.Yspeed;
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-  fish.draw();
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 }
 
 animate();
+
+const backgroundImage = new Image();
+backgroundImage.src = "IMG/Ocean.jpg"; // Replace with your background image path
+ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
