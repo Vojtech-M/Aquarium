@@ -60,13 +60,22 @@ class Fish {
     // Initial display of fish count
     document.getElementById("fishCount").textContent = `Fish count: ${fishes.length}`;
 
-    const button = document.querySelector("button");
+    const button = document.getElementById("AddFish");
     button.addEventListener("click", () => {
         fishes.push(new Fish(Math.random() * (canvas.width - 100), Math.random() * (canvas.height - 100)));
         console.log(`Fish added. Total fish count: ${fishes.length}`);
         // Update the display after adding a fish
         document.getElementById("fishCount").textContent = `Fish count: ${fishes.length}`;
     });
+
+ const button1 = document.getElementById("RemoveFish");
+    button1.addEventListener("click", () => {
+        fishes.pop()
+        console.log(`Fish removed. Total fish count: ${fishes.length}`);
+        // Update the display after adding a fish
+        document.getElementById("fishCount").textContent = `Fish count: ${fishes.length}`;
+    });
+
 
 
 

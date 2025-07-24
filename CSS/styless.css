@@ -1,20 +1,31 @@
 body {
     margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #e0f7fa;
+    --bg-dark: #222;
+    --button-color: #63B8FF;
+    --button-hover: #328ce6;
+    counter-reset: levels; /*Counter for levels*/
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    font-family: inherit;
 }
 
 h1 {
     font-size: 2.5rem;
     color: #00796b;
+    display: flex;
+    align-self: center;
 }
 canvas {
     border: 2px solid #004d40;
+    width: 60vw;
+    height: 60vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
  
     background-image:    url(/IMG/Ocean.jpg);
@@ -24,13 +35,37 @@ canvas {
 }
 
 button {
-    padding: 10px 20px;
     font-size: 1.2rem;
     color: #ffffff;
     background-color: #00796b;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px 20px;
-    margin-top: 20px;
+    margin: 30px;
+
+}
+
+#gameButtons {
+    background-color: #328ce6;
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+
+}
+
+footer {
+  width: 100%;
+  background-color: red;
+  display: flex;
+  margin-top: auto;
+  color: white;
+  text-align: center;
+    background-color: var(--bg-dark);
+
+}
+
+section {
+    display: flex;
+    align-self: center;
+
 }

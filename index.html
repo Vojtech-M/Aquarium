@@ -5,21 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/styless.css">
-    <script src="JS/script.js" defer></script>
 </head>
 <body>
 
-<h1>Aquarium example</h1>
-    <canvas id="aquariumCanvas" width="400" height="300">
+<h1>Aquarium example</h1>  
+
+<section>
+  <canvas id="aquariumCanvas" width="720" height="400">
         Your browser does not support the HTML5 canvas element.
 
     </canvas>
 
-    <button id="AddFish">Add Blue Fish</button>
+    <div id="gameButtons">
 
-    <button id="RemoveFish">Remove Blue Fish</button>
+        <button id="AddFish">Add Blue Fish</button>
+        <button id="RemoveFish">Remove Blue Fish</button>
+        <p id="fishCount"></p>
 
-    <p id="fishCount"></p>
+    </div>
+
+
+</section>
+
+
+    <article>
+        <h2>Sapínek žlutomodrý</h2>
+        <p>Sapínek žlutomodrý žije hlavně u Šalomounových ostrovů, Nové Guineje, Filipín, Zadní Indie a jižního Japonska. Dorůstá délky jen 5-6 cm. Na některých lokalitách (např. na Nové Guineji) rybám chybí žluté zbarvení: příslušné části těla jsou průsvitně bělavé. Obývá laguny a pobřežní korálové rify od 1 do 16 m hloubky. Žije v malých skupinách. Plankton loví většinou 30–50 cm nade dnem.</p>
+    </article>
+
+    
+
+     <footer>
+        <p>&copy; 2025 Vojtěch Michal</p>
+        <a id="githubLink" href="https://github.com/Vojtech-M/KAJ_Semestralni_prace"> GitHub</a>
+        <img id="JS_logo" src="./assets/img/icons/javascript-original.svg" alt="JavaScript logo">
+    </footer>
+
+     <script src="JS/script.js"></script>
 
 </body>
 </html>
