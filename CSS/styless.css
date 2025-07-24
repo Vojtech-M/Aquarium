@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #e0f7fa;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #00796b;
+}
+canvas {
+    border: 2px solid #004d40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
