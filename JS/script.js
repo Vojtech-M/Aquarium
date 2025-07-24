@@ -5,7 +5,7 @@ canvas.width = 500;
 canvas.height = 500;
 
 const drawImage = new Image();
-drawImage.src = "IMG/BlueFish.png"; // Replace with your image path
+drawImage.src = "IMG/FISHH.png"; // Replace with your image path
 
 class Fish {
     constructor(x, y) {
@@ -95,3 +95,5 @@ animate();
 const backgroundImage = new Image();
 backgroundImage.src = "IMG/Ocean.jpg"; // Replace with your background image path
 ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+
