@@ -22,3 +22,15 @@ canvas {
     background-repeat:   no-repeat;
     background-position: center center;
 }
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 20px;
+}

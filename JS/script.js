@@ -48,15 +48,28 @@ class Fish {
         ctx.drawImage(drawImage, this.x, this.y, 100, 100);
     }
 }
+    // Create multiple fish
+    const fishes = [
+        new Fish(0, 0),
+        new Fish(150, 150),
+        new Fish(200, 50),
+        new Fish(100, 300),
+        new Fish(350, 100),
+    ];
 
-// Create multiple fish
-const fishes = [
-    new Fish(0, 0),
-    new Fish(150, 150),
-    new Fish(200, 50),
-    new Fish(100, 300),
-    new Fish(350, 100),
-];
+    // Initial display of fish count
+    document.getElementById("fishCount").textContent = `Fish count: ${fishes.length}`;
+
+    const button = document.querySelector("button");
+    button.addEventListener("click", () => {
+        fishes.push(new Fish(Math.random() * (canvas.width - 100), Math.random() * (canvas.height - 100)));
+        console.log(`Fish added. Total fish count: ${fishes.length}`);
+        // Update the display after adding a fish
+        document.getElementById("fishCount").textContent = `Fish count: ${fishes.length}`;
+    });
+
+
+
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -65,7 +78,6 @@ function animate() {
         fish.move();
         fish.draw();
     }
-
     requestAnimationFrame(animate);
 }
 
